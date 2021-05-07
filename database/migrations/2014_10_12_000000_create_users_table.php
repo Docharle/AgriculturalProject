@@ -22,6 +22,12 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->bigInteger('phone_no')->unique();
+            $table->string('last_name');
+            $table->string('middle_name')->nullable();
+        });
     }
 
     /**
